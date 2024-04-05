@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS recipeSite_db;
+CREATE DATABASE recipeSite_db;
