@@ -44,7 +44,7 @@ router.post('/logout', (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.post('/signUp', async (req, res) => {
   const findUser = await User.findOne({ where: { user_name: req.body.user_name } });
   if(findUser) {
       res.status(400).json({ message: 'Looks like there is already a user with that username. Click the login button to sign in or create a different username.' });
