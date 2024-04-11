@@ -45,16 +45,20 @@ router.post('/logout', (req, res) => {
 });
 
 router.post('/signUp', async (req, res) => {
-  const findUser = await User.findOne({ where: { user_name: req.body.user_name } });
+  console.log(req.body)
+  const findUser = await User.findOne({ where: { email: req.body.email } });
+  console.log(findUser)
   if(findUser) {
       res.status(400).json({ message: 'Looks like there is already a user with that username. Click the login button to sign in or create a different username.' });
       return;
-  } try {
+  } else{
+    try {
+      console.log(User)
       const user = await User.create({
-          user_name: req.body.user_name,
+          email: req.body.email,
           password: req.body.password
       });
-
+console.log(user)
       req.session.save(() => {
           req.session.user_id = user.id;
           req.session.logged_in = true;
@@ -64,6 +68,7 @@ router.post('/signUp', async (req, res) => {
       } catch (error) {
               res.status(500).json(error)
           }
+        }
 });
 
 module.exports = router;
