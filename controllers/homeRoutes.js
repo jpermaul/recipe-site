@@ -1,52 +1,33 @@
-const express = require('express');
-const exphbs = require('express-handlebars');
-const path = require('path');
+const router = require('express').Router();
+const { User } = require('../models');
+const withAuth = require('../utils/auth');
 
-const app = express();
 
-// Set Handlebars as the template engine
-app.engine('handlebars', exphbs());
-app.set('view engine', 'handlebars');
-
-// Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, '..', 'public')));
-
-// Define a route to render the home page
-app.get('/', (req, res) => {
-    res.render('home', {
-        // You can pass data to your Handlebars template here
-        pageTitle: 'Home Page',
-        message: 'Welcome to our website!'
+router.get('/', withAuth, async (req, res) => {
+  try {
+    const userData = await User.findAll({
+      attributes: { exclude: ['password'] },
+      order: [['name', 'ASC']],
     });
+
+    const users = userData.map((project) => project.get({ plain: true }));
+
+    res.render('homepage', {
+      users,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
-// Define a route to render the sign-in page
-app.get('/signin', (req, res) => {
-    res.render('signin', {
-        pageTitle: 'Sign In',
-        message: "Please enter your username and password.",
-        showUsername:true,
-        username:'userjoe',
-        password:'1234abc',
-        errorMessage:'Login failed',
-        userNameError:false,
-        passwordError:false,
+router.get('/login', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
 
-    });
+  res.render('login');
 });
 
-// Define a route to render the sign-out page
-app.get('/signout', (req, res) => {
-    res.render('signout', {
-        pageTitle: 'Sign Out',
-        message: 'You have successfuly been signed out',
-        
-    });
-});
-
-// Set up your routes for CRUD operations
-const recipeRoutes = require('./recipeRoutes');
-app.use('/recipes', recipeRoutes);
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+module.exports = router;
