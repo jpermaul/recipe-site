@@ -1,48 +1,59 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Feed</title>
-        <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.3/css/bulma.min.css">
-    </head>
-    <body>
-        <nav class="navbar">
-    <div class="container">
-        <div class="navbar-brand">
-            <a style="font-family:courier;font-size:300%;font-weight:bolder" class="navbar-item" href="../">
-                Feed
-            </a>
-            <span class="navbar-burger burger" data-target="navbarMenu">
-                    <span></span>
-            <span></span>
-            <span></span>
-            </span>
-        </div>
-        <div id="navbarMenu" class="navbar-menu">
-            <div class="navbar-end">
-                <a class="navbar-item is-active">
-                        Home
+
+<head>
+    <meta charset="utf-8">
+    <title>Feed</title>
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.3/css/bulma.min.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <a style="font-family:courier;font-size:300%;font-weight:bolder" class="navbar-item" href="../">
+                    Feed
                 </a>
-                {{#if logged_in}}
-                {{!-- <a class="navbar-item" href="/recipes"> --}}
-                        {{!-- Recipes --}}
-                    {{!-- </a> --}}
-                
-                <a class="navbar-item" id="logout">
+                <span class="navbar-burger burger" data-target="navbarMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+            </div>
+            <div id="navbarMenu" class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item is-active">
+                        Home
+                    </a>
+                    {{#if logged_in}}
+                    <a class="navbar-item" href="/addpost">
+                        Post
+                    </a>
+
+                    <a class="navbar-item" id="logout">
                         Logout
                     </a>
-                {{else}}
+                    {{else}}
                     <a class="navbar-item" href="/login">
                         Login
                     </a>
                     <a class="navbar-item" href="/signup">
                         Signup
                     </a>
-                {{/if}}
+                    {{/if}}
+                </div>
             </div>
         </div>
-    </div>
-</nav>
-        {{{body}}}
-    </body>
+    </nav>
+    {{{body}}}
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+
+    {{#if logged_in}}
+    <script src="/js/logout.js"></script>
+    {{else}}
+    {{/if}}
+</body>
+
 </html>
