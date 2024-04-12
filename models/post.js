@@ -1,8 +1,8 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const User = require('./user');
-
-const Post = sequelize.define('Post', {
+class Post extends Model {}
+Post.init(
+    {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -17,6 +17,8 @@ const Post = sequelize.define('Post', {
         type: DataTypes.TEXT,
         allowNull: false
     }, 
+
+
     // ingredients: {
     //     type: DataTypes.TEXT, 
     //     allowNull: false
@@ -33,8 +35,17 @@ const Post = sequelize.define('Post', {
     //    type: DataTypes.STRING,
     //    allowNull: true
     // }
-});
+},
+{
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'post'
+}
+
+);
 
 
 
-module.exports = Recipe;
+module.exports = Post;

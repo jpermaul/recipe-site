@@ -6,6 +6,43 @@
         <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.3/css/bulma.min.css">
     </head>
     <body>
+        <nav class="navbar">
+    <div class="container">
+        <div class="navbar-brand">
+            <a style="font-family:courier;font-size:300%;font-weight:bolder" class="navbar-item" href="../">
+                Feed
+            </a>
+            <span class="navbar-burger burger" data-target="navbarMenu">
+                    <span></span>
+            <span></span>
+            <span></span>
+            </span>
+        </div>
+        <div id="navbarMenu" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item is-active">
+                        Home
+                </a>
+                {{#if logged_in}}
+                {{!-- <a class="navbar-item" href="/recipes"> --}}
+                        {{!-- Recipes --}}
+                    {{!-- </a> --}}
+                
+                <a class="navbar-item" id="logout">
+                        Logout
+                    </a>
+                {{else}}
+                    <a class="navbar-item" href="/login">
+                        Login
+                    </a>
+                    <a class="navbar-item" href="/signup">
+                        Signup
+                    </a>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</nav>
         {{{body}}}
     </body>
 </html>

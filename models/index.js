@@ -1,4 +1,5 @@
 const User = require('./user');
+const Post = require('./post');
 
 // User.hasMany(Recipe);
 // User.hasMany(Comment);
@@ -10,4 +11,4 @@ const User = require('./user');
 // Like.belongsTo(Recipe);
 
 
-module.exports = { User };
+module.exports = { User, Post };
