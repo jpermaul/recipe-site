@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const User = require('./user');
 
-const Recipe = sequelize.define('Recipe', {
+const Post = sequelize.define('Post', {
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -17,22 +17,22 @@ const Recipe = sequelize.define('Recipe', {
         type: DataTypes.TEXT,
         allowNull: false
     }, 
-    ingredients: {
-        type: DataTypes.TEXT, 
-        allowNull: false
-    }, 
-    instructions: {
-        type: DataTypes.TEXT, 
-        allowNull: false
-    }, 
-    servingSize: {
-        type: DataTypes.INTEGER, 
-        allowNull: true
-    },
-    imageURL: {
-       type: DataTypes.STRING,
-       allowNull: true
-    }
+    // ingredients: {
+    //     type: DataTypes.TEXT, 
+    //     allowNull: false
+    // }, 
+    // instructions: {
+    //     type: DataTypes.TEXT, 
+    //     allowNull: false
+    // }, 
+    // servingSize: {
+    //     type: DataTypes.INTEGER, 
+    //     allowNull: true
+    // },
+    // imageURL: {
+    //    type: DataTypes.STRING,
+    //    allowNull: true
+    // }
 });
 
 
