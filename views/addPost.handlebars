@@ -1,20 +1,15 @@
-<section>
-    <a href="" class="is-pulled-right"> </a>
-  <h2 class="title">create new post</h2><hr>
-
-  <form class="new-post-form">
-    <div>
-      <label for="post-title">title:</label>
-      <input class="input" type="text" id="post-title" name="post-title" placeholder="insert post title here"/>
+<form action="submit" id="addPost">
+    <div class="form-group">
+        <label for="post-title">title:</label>
+        <input type="text" id="title" label="title" name="title">
     </div>
-    <div>
-      <label for="post-content">content:</label>
-      <input class="textarea is-large" id="post-content" name="post-content" placeholder="insert post content here"/>
+    <div class="form-group">
+        <label for="post-description">description</label>
+        <input type="text" id="description" label="description" name="description">
     </div>
-    <button type="submit" class="button is-primary is-pulled-right">create post</button>
-  </form>
-</section>v
+    <input type="submit" label="Submit" id="submitBtn">
+</form>
 
 
-
-<script src="/public/js/addPost.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/addPost.js"></script>
