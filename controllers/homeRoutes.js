@@ -7,8 +7,8 @@ require('colors');
 console.log('hello'.green); // outputs green text
 console.log('i like cake and pies'.underline.red) // outputs red underlined text
 console.log('inverse the color'.inverse); // inverses the color
-console.log('OMG Rainbows!'.orange); // rainbow
-console.log('Run the trap'.trap.rainbow); // Drops the bass
+console.log('OMG Rainbows!'.rainbow); // rainbow
+console.log('Run the trap'.trap.blue); // Drops the bass
 
 
 router.get('/', withAuth, async (req, res) => {
@@ -51,7 +51,9 @@ router.get('/signUp', (req, res) => {
     res.redirect('/');
     return;
   }
+  res.render('signUp');
 });
+
 
 router.get('/addpost', (req, res) => {
   res.render('addPost');
