@@ -4,11 +4,11 @@ const withAuth = require('../utils/auth');
 
 require('colors');
 
-console.log('hello'.green); // outputs green text
-console.log('i like cake and pies'.underline.red) // outputs red underlined text
-console.log('inverse the color'.inverse); // inverses the color
-console.log('OMG Rainbows!'.rainbow); // rainbow
-console.log('Run the trap'.trap.blue); // Drops the bass
+console.log('hello!'.green); // outputs green text
+console.log('Thanks for using our food focused social networking site.'.underline.red) // outputs red underlined text
+console.log('Share your favorite recipes!'.inverse); // inverses the color
+console.log('Enjoy'.rainbow); // rainbow
+console.log('Farewell'.trap.blue); // Drops the bass
 
 
 router.get('/', withAuth, async (req, res) => {
