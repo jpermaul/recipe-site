@@ -29,13 +29,17 @@ I will then be able to cook the meal of my choice
 * Next, clone this project repository to your computer. 
 * Use the command "npm install" to install dependecies. 
 * Create a file in the root directory titled ".env" and type "PASSWORD='[YOUR PASSWORD HERE]'"
-* Type "mysql -u root -p" in the terminal and enter your personal MySQL password. Next, type "source schema.sql"  (These commands will create the recipeSite_db database 
+* Type "mysql -u root -p" in the terminal and enter your personal MySQL password. Next, type "source schema.sql"  
 
 ## Usage
-* Open terminal in "index.js" and run the command "node server".
+* Open terminal in "index.js" and run the command "node server". Here is a screenshot of the application home page, where you can view posts:
+
+![Alt text](./assets/Capture.PNG?raw=true "Application Homepage")
 
 ## Contributing
 This project was created as a project assignment with team members contact for questions.
 
 ## Contact
 * Alyece's Email watsonalyece33@gmail.com
+* Jeremy - jnpermaul@gmail.com
+* Angel - 
