@@ -7,7 +7,7 @@ const signUpFormHandler = async (event) => {
   
     if (email && password) {
       
-      const response = await fetch('./api/userRoutes.js', {
+      const response = await fetch('./api/users/signUp', {
         method: 'POST',
         body: JSON.stringify({ email, password }),
         headers: { 'Content-Type': 'application/json' },
